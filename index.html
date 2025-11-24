@@ -1,0 +1,1289 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hotel Paraíso Serrano - Conforto e Natureza</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      /* Reset e estilos base */
+      * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      :root {
+          --primary-color: #8B7355;
+          --secondary-color: #4A6B57;
+          --accent-color: #D4B996;
+          --light-color: #F9F7F4;
+          --dark-color: #3E3E3E;
+          --text-light: #FFFFFF;
+          --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+          --transition: all 0.3s ease;
+      }
+
+      body {
+          background-color: var(--light-color);
+          color: var(--dark-color);
+          line-height: 1.6;
+          overflow-x: hidden;
+      }
+
+      /* Header e Navegação */
+      header {
+          background-color: rgba(255, 255, 255, 0.95);
+          box-shadow: var(--shadow);
+          position: fixed;
+          width: 100%;
+          top: 0;
+          z-index: 1000;
+          transition: var(--transition);
+      }
+
+      .header-container {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 15px 5%;
+          max-width: 1400px;
+          margin: 0 auto;
+      }
+
+      .logo {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+      }
+
+      .logo-icon {
+          color: var(--secondary-color);
+          font-size: 1.8rem;
+      }
+
+      .logo-text {
+          font-size: 1.5rem;
+          font-weight: 700;
+          color: var(--secondary-color);
+      }
+
+      .logo-text span {
+          color: var(--primary-color);
+      }
+
+      nav ul {
+          display: flex;
+          list-style: none;
+          gap: 30px;
+      }
+
+      nav a {
+          text-decoration: none;
+          color: var(--dark-color);
+          font-weight: 500;
+          transition: var(--transition);
+          position: relative;
+      }
+
+      nav a:hover {
+          color: var(--primary-color);
+      }
+
+      nav a::after {
+          content: '';
+          position: absolute;
+          width: 0;
+          height: 2px;
+          bottom: -5px;
+          left: 0;
+          background-color: var(--primary-color);
+          transition: var(--transition);
+      }
+
+      nav a:hover::after {
+          width: 100%;
+      }
+
+      .header-actions {
+          display: flex;
+          align-items: center;
+          gap: 15px;
+      }
+
+      .search-box {
+          position: relative;
+      }
+
+      .search-box input {
+          padding: 8px 15px;
+          border: 1px solid #ddd;
+          border-radius: 20px;
+          width: 200px;
+          transition: var(--transition);
+      }
+
+      .search-box input:focus {
+          width: 250px;
+          outline: none;
+          border-color: var(--primary-color);
+      }
+
+      .search-btn {
+          position: absolute;
+          right: 10px;
+          top: 50%;
+          transform: translateY(-50%);
+          background: none;
+          border: none;
+          color: var(--dark-color);
+          cursor: pointer;
+      }
+
+      .mobile-menu {
+          display: none;
+          font-size: 1.5rem;
+          cursor: pointer;
+      }
+
+      /* Hero Section */
+      .hero {
+          background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+                      url('https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1600&q=80');
+          background-size: cover;
+          background-position: center;
+          height: 100vh;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+          color: var(--text-light);
+          padding: 0 20px;
+          margin-top: 70px;
+      }
+
+      .hero-content {
+          max-width: 800px;
+      }
+
+      .hero-content h1 {
+          font-size: 3.5rem;
+          margin-bottom: 20px;
+          text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+          font-weight: 700;
+      }
+
+      .hero-content p {
+          font-size: 1.3rem;
+          margin-bottom: 30px;
+          max-width: 600px;
+          margin-left: auto;
+          margin-right: auto;
+      }
+
+      /* Botões */
+      .btn {
+          background-color: var(--accent-color);
+          color: var(--dark-color);
+          border: none;
+          padding: 14px 35px;
+          font-size: 1rem;
+          border-radius: 30px;
+          cursor: pointer;
+          transition: var(--transition);
+          font-weight: 600;
+          box-shadow: var(--shadow);
+          display: inline-block;
+          text-decoration: none;
+      }
+
+      .btn:hover {
+          background-color: var(--primary-color);
+          color: white;
+          transform: translateY(-3px);
+          box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      .btn-secondary {
+          background-color: transparent;
+          color: var(--text-light);
+          border: 2px solid var(--text-light);
+      }
+
+      .btn-secondary:hover {
+          background-color: var(--text-light);
+          color: var(--dark-color);
+      }
+
+      /* Seções */
+      section {
+          padding: 80px 20px;
+      }
+
+      .section-header {
+          text-align: center;
+          margin-bottom: 60px;
+      }
+
+      .section-header h2 {
+          font-size: 2.5rem;
+          color: var(--secondary-color);
+          margin-bottom: 15px;
+          position: relative;
+          display: inline-block;
+      }
+
+      .section-header h2::after {
+          content: '';
+          position: absolute;
+          width: 60px;
+          height: 3px;
+          background-color: var(--primary-color);
+          bottom: -10px;
+          left: 50%;
+          transform: translateX(-50%);
+      }
+
+      .section-header p {
+          max-width: 700px;
+          margin: 0 auto;
+          color: #666;
+          font-size: 1.1rem;
+      }
+
+      /* Suítes */
+      .suites-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+          gap: 30px;
+          max-width: 1200px;
+          margin: 0 auto;
+      }
+
+      .suite-card {
+          background: white;
+          border-radius: 15px;
+          overflow: hidden;
+          box-shadow: var(--shadow);
+          transition: var(--transition);
+          cursor: pointer;
+          position: relative;
+      }
+
+      .suite-card:hover {
+          transform: translateY(-10px);
+          box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+      }
+
+      .suite-card img {
+          width: 100%;
+          height: 220px;
+          object-fit: cover;
+          transition: var(--transition);
+      }
+
+      .suite-card:hover img {
+          transform: scale(1.05);
+      }
+
+      .suite-card-content {
+          padding: 20px;
+      }
+
+      .suite-card h3 {
+          color: var(--primary-color);
+          margin-bottom: 10px;
+          font-size: 1.4rem;
+      }
+
+      .suite-card p {
+          color: #666;
+          margin-bottom: 15px;
+      }
+
+      .suite-price {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-top: 15px;
+          padding-top: 15px;
+          border-top: 1px solid #eee;
+      }
+
+      .price {
+          font-weight: 700;
+          color: var(--secondary-color);
+          font-size: 1.2rem;
+      }
+
+      /* Destaques */
+      .highlights {
+          background-color: var(--secondary-color);
+          color: var(--text-light);
+      }
+
+      .highlights-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+          gap: 30px;
+          max-width: 1200px;
+          margin: 0 auto;
+      }
+
+      .highlight-card {
+          text-align: center;
+          padding: 30px 20px;
+          background: rgba(255, 255, 255, 0.1);
+          border-radius: 10px;
+          transition: var(--transition);
+      }
+
+      .highlight-card:hover {
+          transform: translateY(-5px);
+          background: rgba(255, 255, 255, 0.15);
+      }
+
+      .highlight-icon {
+          font-size: 2.5rem;
+          margin-bottom: 20px;
+          color: var(--accent-color);
+      }
+
+      .highlight-card h3 {
+          margin-bottom: 15px;
+          font-size: 1.3rem;
+      }
+
+      /* Serviços */
+      .services-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+          gap: 25px;
+          max-width: 1200px;
+          margin: 0 auto;
+      }
+
+      .service-item {
+          display: flex;
+          align-items: flex-start;
+          gap: 15px;
+          padding: 20px;
+          background: white;
+          border-radius: 10px;
+          box-shadow: var(--shadow);
+          transition: var(--transition);
+      }
+
+      .service-item:hover {
+          transform: translateY(-5px);
+      }
+
+      .service-icon {
+          font-size: 1.8rem;
+          color: var(--primary-color);
+          flex-shrink: 0;
+      }
+
+      .service-content h3 {
+          margin-bottom: 10px;
+          color: var(--secondary-color);
+      }
+
+      /* Depoimentos */
+      .testimonials {
+          background-color: #f8f5f0;
+      }
+
+      .testimonials-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+          gap: 30px;
+          max-width: 1200px;
+          margin: 0 auto;
+      }
+
+      .testimonial-card {
+          background: white;
+          padding: 30px;
+          border-radius: 10px;
+          box-shadow: var(--shadow);
+          position: relative;
+      }
+
+      .testimonial-card::before {
+          content: """;
+          font-size: 5rem;
+          color: var(--accent-color);
+          position: absolute;
+          top: -10px;
+          left: 10px;
+          opacity: 0.3;
+          font-family: Georgia, serif;
+      }
+
+      .testimonial-text {
+          margin-bottom: 20px;
+          font-style: italic;
+          color: #555;
+      }
+
+      .testimonial-author {
+          display: flex;
+          align-items: center;
+          gap: 15px;
+      }
+
+      .author-avatar {
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          object-fit: cover;
+      }
+
+      .author-info h4 {
+          color: var(--secondary-color);
+          margin-bottom: 5px;
+      }
+
+      .author-info p {
+          color: #777;
+          font-size: 0.9rem;
+      }
+
+      /* Rodapé */
+      footer {
+          background-color: var(--dark-color);
+          color: var(--text-light);
+          padding: 60px 20px 30px;
+      }
+
+      .footer-content {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+          gap: 40px;
+          max-width: 1200px;
+          margin: 0 auto 40px;
+      }
+
+      .footer-column h3 {
+          color: var(--accent-color);
+          margin-bottom: 20px;
+          font-size: 1.3rem;
+          position: relative;
+          padding-bottom: 10px;
+      }
+
+      .footer-column h3::after {
+          content: '';
+          position: absolute;
+          width: 40px;
+          height: 2px;
+          background-color: var(--primary-color);
+          bottom: 0;
+          left: 0;
+      }
+
+      .footer-column p, .footer-column a {
+          color: #ccc;
+          margin-bottom: 10px;
+          display: block;
+          text-decoration: none;
+          transition: var(--transition);
+      }
+
+      .footer-column a:hover {
+          color: var(--accent-color);
+          padding-left: 5px;
+      }
+
+      .social-links {
+          display: flex;
+          gap: 15px;
+          margin-top: 20px;
+      }
+
+      .social-links a {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 40px;
+          height: 40px;
+          background-color: rgba(255, 255, 255, 0.1);
+          border-radius: 50%;
+          transition: var(--transition);
+      }
+
+      .social-links a:hover {
+          background-color: var(--primary-color);
+          transform: translateY(-3px);
+      }
+
+      .copyright {
+          text-align: center;
+          padding-top: 30px;
+          border-top: 1px solid rgba(255, 255, 255, 0.1);
+          max-width: 1200px;
+          margin: 0 auto;
+          color: #999;
+          font-size: 0.9rem;
+      }
+
+      .copyright a {
+          color: #ccc;
+          text-decoration: none;
+          transition: var(--transition);
+      }
+
+      .copyright a:hover {
+          color: var(--accent-color);
+      }
+
+      /* Modal de Reserva */
+      .modal {
+          display: none;
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0, 0, 0, 0.7);
+          z-index: 2000;
+          align-items: center;
+          justify-content: center;
+          padding: 20px;
+      }
+
+      .modal.active {
+          display: flex;
+      }
+
+      .modal-content {
+          background-color: white;
+          padding: 40px;
+          border-radius: 15px;
+          width: 100%;
+          max-width: 600px;
+          position: relative;
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+          animation: modalFadeIn 0.3s ease;
+      }
+
+      @keyframes modalFadeIn {
+          from { opacity: 0; transform: translateY(-50px); }
+          to { opacity: 1; transform: translateY(0); }
+      }
+
+      .close {
+          position: absolute;
+          top: 20px;
+          right: 20px;
+          font-size: 1.5rem;
+          cursor: pointer;
+          color: var(--dark-color);
+          transition: var(--transition);
+      }
+
+      .close:hover {
+          color: var(--primary-color);
+          transform: rotate(90deg);
+      }
+
+      .modal h2 {
+          text-align: center;
+          margin-bottom: 30px;
+          color: var(--secondary-color);
+      }
+
+      form {
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+      }
+
+      .form-row {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 15px;
+      }
+
+      .form-group {
+          display: flex;
+          flex-direction: column;
+      }
+
+      label {
+          margin-bottom: 8px;
+          font-weight: 600;
+          color: var(--dark-color);
+      }
+
+      input, select {
+          padding: 12px 15px;
+          border: 1px solid #ddd;
+          border-radius: 8px;
+          font-size: 1rem;
+          transition: var(--transition);
+      }
+
+      input:focus, select:focus {
+          outline: none;
+          border-color: var(--primary-color);
+          box-shadow: 0 0 0 2px rgba(139, 115, 85, 0.2);
+      }
+
+      /* Estilos do Modal de Detalhes da Suíte */
+      #suite-details-content img {
+          width: 100%;
+          height: 250px;
+          object-fit: cover;
+          border-radius: 10px;
+          margin-bottom: 20px;
+      }
+
+      #suite-details-content h2 {
+          color: var(--secondary-color);
+          margin-bottom: 15px;
+          font-size: 2rem;
+      }
+
+      #suite-details-content p {
+          margin-bottom: 20px;
+          color: #666;
+      }
+
+      #suite-details-content ul {
+          list-style: none;
+          margin-bottom: 20px;
+      }
+
+      #suite-details-content ul li {
+          margin-bottom: 10px;
+          display: flex;
+          align-items: center;
+          gap: 10px;
+      }
+
+      #suite-details-content ul li::before {
+          content: '✓';
+          color: var(--secondary-color);
+          font-weight: bold;
+      }
+
+      .suite-details-price {
+          font-size: 1.5rem;
+          font-weight: bold;
+          color: var(--primary-color);
+          text-align: right;
+          margin-top: 20px;
+      }
+
+      /* Responsividade */
+      @media (max-width: 992px) {
+          .hero-content h1 {
+              font-size: 2.8rem;
+          }
+
+          .section-header h2 {
+              font-size: 2.2rem;
+          }
+
+          .form-row {
+              grid-template-columns: 1fr;
+          }
+      }
+
+      @media (max-width: 768px) {
+          .header-container {
+              padding: 15px 20px;
+          }
+
+          nav {
+              display: none;
+          }
+
+          .mobile-menu {
+              display: block;
+          }
+
+          .search-box input {
+              width: 150px;
+          }
+
+          .search-box input:focus {
+              width: 180px;
+          }
+
+          .hero-content h1 {
+              font-size: 2.2rem;
+          }
+
+          .hero-content p {
+              font-size: 1.1rem;
+          }
+
+          section {
+              padding: 60px 20px;
+          }
+      }
+
+      @media (max-width: 480px) {
+          .hero-content h1 {
+              font-size: 1.8rem;
+          }
+
+          .suites-grid {
+              grid-template-columns: 1fr;
+          }
+
+          .modal-content {
+              padding: 30px 20px;
+          }
+
+          .logo-text {
+              font-size: 1.2rem;
+          }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="header-container">
+        <div class="logo">
+          <i class="fas fa-mountain logo-icon"></i>
+          <div class="logo-text">Paraíso <span>Serrano</span></div>
+        </div>
+
+        <nav>
+          <ul>
+            <li><a href="#home">Início</a></li>
+            <li><a href="#suites">Suítes</a></li>
+            <li><a href="#services">Serviços</a></li>
+            <li><a href="#gallery">Galeria</a></li>
+            <li><a href="#contact">Contato</a></li>
+          </ul>
+        </nav>
+
+        <div class="header-actions">
+          <div class="search-box">
+            <input type="text" placeholder="Pesquisar..." />
+            <button class="search-btn"><i class="fas fa-search"></i></button>
+          </div>
+          <button class="btn" id="open-reserva">Reservar Agora</button>
+          <div class="mobile-menu">
+            <i class="fas fa-bars"></i>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <h1>Hotel Paraíso Serrano</h1>
+        <p>
+          Conforto, charme e natureza em perfeita harmonia. Uma experiência
+          única nas montanhas.
+        </p>
+        <div class="hero-buttons">
+          <button class="btn" id="open-reserva-hero">Fazer Reserva</button>
+          <button class="btn btn-secondary">Explorar Suítes</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Destaques -->
+    <section class="highlights">
+      <div class="highlights-grid">
+        <div class="highlight-card">
+          <i class="fas fa-spa highlight-icon"></i>
+          <h3>Spa & Bem-estar</h3>
+          <p>Relaxe com nossos tratamentos exclusivos inspirados na natureza</p>
+        </div>
+        <div class="highlight-card">
+          <i class="fas fa-utensils highlight-icon"></i>
+          <h3>Gastronomia</h3>
+          <p>Pratos regionais preparados com ingredientes locais e frescos</p>
+        </div>
+        <div class="highlight-card">
+          <i class="fas fa-hiking highlight-icon"></i>
+          <h3>Trilhas Guiadas</h3>
+          <p>
+            Explore as belezas naturais da serra com nossos guias especializados
+          </p>
+        </div>
+        <div class="highlight-card">
+          <i class="fas fa-concierge-bell highlight-icon"></i>
+          <h3>Serviço Premium</h3>
+          <p>Atendimento personalizado para tornar sua estadia inesquecível</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Suítes -->
+    <section class="suites" id="suites">
+      <div class="section-header">
+        <h2>Nossas Suítes</h2>
+        <p>
+          Conheça nossos ambientes cuidadosamente projetados para oferecer o
+          máximo conforto e conexão com a natureza
+        </p>
+      </div>
+
+      <div class="suites-grid">
+        <div class="suite-card" onclick="showDetails('luxo')">
+          <img
+            src="https://s2-casavogue.glbimg.com/lSailhCYV748Pvn_DE-NAAXYM9I=/0x0:3000x1500/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_d72fd4bf0af74c0c89d27a5a226dbbf8/internal_photos/bs/2022/r/4/ER1FBjRxAJ9IO8QCNHoQ/maior-suite-de-cruzeiro-de-luxo-do-mundo-tem-cama-de-r-1-milhao-spa-e-mais-conheca-2-.jpg"
+            alt="Suíte Luxo"
+          />
+          <div class="suite-card-content">
+            <h3>Suíte Luxo</h3>
+            <p>
+              Vista para as montanhas, cama queen, hidromassagem e café da manhã
+              incluso.
+            </p>
+            <div class="suite-price">
+              <span class="price">R$ 450/noite</span>
+              <button class="btn">Ver Detalhes</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="suite-card" onclick="showDetails('premium')">
+          <img
+            src="https://finger.ind.br/wp-content/uploads/2022/11/2j4a8163-hdr-1024x683.jpg"
+            alt="Suíte Premium"
+          />
+          <div class="suite-card-content">
+            <h3>Suíte Premium</h3>
+            <p>Ambiente espaçoso, decoração em madeira e varanda exclusiva.</p>
+            <div class="suite-price">
+              <span class="price">R$ 580/noite</span>
+              <button class="btn">Ver Detalhes</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="suite-card" onclick="showDetails('master')">
+          <img
+            src="https://images.unsplash.com/photo-1627308595229-7830a5c91f9f?auto=format&fit=crop&w=800&q=60"
+            alt="Suíte Master"
+          />
+          <div class="suite-card-content">
+            <h3>Suíte Master</h3>
+            <p>
+              Perfeita para casais. Jacuzzi, vista para o vale e serviço de
+              quarto 24h.
+            </p>
+            <div class="suite-price">
+              <span class="price">R$ 750/noite</span>
+              <button class="btn">Ver Detalhes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Serviços -->
+    <section class="services" id="services">
+      <div class="section-header">
+        <h2>Serviços Exclusivos</h2>
+        <p>
+          Tudo que você precisa para uma estadia perfeita em meio à natureza
+        </p>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-item">
+          <i class="fas fa-fire service-icon"></i>
+          <div class="service-content">
+            <h3>Lareira e Lounge Rústico</h3>
+            <p>
+              Ambiente aconchegante com lareira para noites frias e momentos
+              especiais.
+            </p>
+          </div>
+        </div>
+        <div class="service-item">
+          <i class="fas fa-spa service-icon"></i>
+          <div class="service-content">
+            <h3>Spa & Massagem Natural</h3>
+            <p>
+              Tratamentos relaxantes com produtos naturais e técnicas
+              tradicionais.
+            </p>
+          </div>
+        </div>
+        <div class="service-item">
+          <i class="fas fa-coffee service-icon"></i>
+          <div class="service-content">
+            <h3>Café da Manhã Artesanal</h3>
+            <p>
+              Delicioso café com produtos regionais, pães caseiros e compotas
+              artesanais.
+            </p>
+          </div>
+        </div>
+        <div class="service-item">
+          <i class="fas fa-car service-icon"></i>
+          <div class="service-content">
+            <h3>Estacionamento Gratuito</h3>
+            <p>
+              Amplo estacionamento seguro e gratuito para todos os hóspedes.
+            </p>
+          </div>
+        </div>
+        <div class="service-item">
+          <i class="fas fa-wifi service-icon"></i>
+          <div class="service-content">
+            <h3>Wi-Fi de Alta Velocidade</h3>
+            <p>Conexão rápida e estável em todas as áreas do hotel.</p>
+          </div>
+        </div>
+        <div class="service-item">
+          <i class="fas fa-hiking service-icon"></i>
+          <div class="service-content">
+            <h3>Trilhas Guiadas</h3>
+            <p>Passeios por trilhas naturais com guias especializados.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Depoimentos -->
+    <section class="testimonials">
+      <div class="section-header">
+        <h2>O Que Nossos Hóspedes Dizem</h2>
+        <p>
+          Experiências reais de quem já viveu momentos inesquecíveis no Paraíso
+          Serrano
+        </p>
+      </div>
+
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="testimonial-text">
+            "Uma experiência incrível! A suíte tinha uma vista deslumbrante e o
+            atendimento foi impecável. Voltaremos com certeza!"
+          </div>
+          <div class="testimonial-author">
+            <img
+              src="https://randomuser.me/api/portraits/women/44.jpg"
+              alt="Maria Silva"
+              class="author-avatar"
+            />
+            <div class="author-info">
+              <h4>Maria Silva</h4>
+              <p>Hóspede - Suíte Luxo</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-text">
+            "O spa é maravilhoso e as trilhas guiadas nos proporcionaram contato
+            direto com a natureza. Recomendo muito!"
+          </div>
+          <div class="testimonial-author">
+            <img
+              src="https://randomuser.me/api/portraits/men/32.jpg"
+              alt="João Santos"
+              class="author-avatar"
+            />
+            <div class="author-info">
+              <h4>João Santos</h4>
+              <p>Hóspede - Suíte Premium</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-text">
+            "Perfeito para nossa lua de mel! A suíte master superou todas as
+            expectativas. O jacuzzi com vista para o vale é inesquecível."
+          </div>
+          <div class="testimonial-author">
+            <img
+              src="https://randomuser.me/api/portraits/women/68.jpg"
+              alt="Ana e Pedro"
+              class="author-avatar"
+            />
+            <div class="author-info">
+              <h4>Ana e Pedro</h4>
+              <p>Hóspedes - Suíte Master</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer id="contact">
+      <div class="footer-content">
+        <div class="footer-column">
+          <h3>Hotel Paraíso Serrano</h3>
+          <p>
+            Conforto, charme e natureza em perfeita harmonia. Uma experiência
+            única nas montanhas.
+          </p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-tripadvisor"></i></a>
+          </div>
+        </div>
+        <div class="footer-column">
+          <h3>Contato</h3>
+          <p>
+            <i class="fas fa-map-marker-alt"></i> Estrada da Serra, KM 12 -
+            Monte Verde
+          </p>
+          <p><i class="fas fa-phone"></i> (11) 99999-9999</p>
+          <p>
+            <i class="fas fa-envelope"></i> contato@hotelparaisoserrrano.com
+          </p>
+        </div>
+        <div class="footer-column">
+          <h3>Links Rápidos</h3>
+          <a href="#home">Início</a>
+          <a href="#suites">Suítes</a>
+          <a href="#services">Serviços</a>
+          <a href="#gallery">Galeria</a>
+          <a href="#contact">Contato</a>
+        </div>
+        <div class="footer-column">
+          <h3>Newsletter</h3>
+          <p>Inscreva-se para receber ofertas exclusivas e novidades</p>
+          <form class="newsletter-form">
+            <input type="email" placeholder="Seu e-mail" required />
+            <button
+              type="submit"
+              class="btn"
+              style="width: 100%; margin-top: 10px"
+            >
+              Inscrever
+            </button>
+          </form>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>Hotel Paraíso Serrano © 2025 — Todos os direitos reservados.</p>
+        <p>Desenvolvido por <a href="https://github.com/CyberTag20" target="_blank" rel="noopener noreferrer">Victor</a></p>
+      </div>
+    </footer>
+
+    <!-- Modal de Reserva -->
+    <div class="modal" id="reserva-modal">
+      <div class="modal-content">
+        <span class="close" id="close-modal">&times;</span>
+        <h2>Fazer Reserva</h2>
+        <form id="reserva-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="nome">Nome completo:</label>
+              <input type="text" id="nome" required />
+            </div>
+            <div class="form-group">
+              <label for="cpf">CPF:</label>
+              <input type="text" id="cpf" required />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="telefone">Telefone:</label>
+              <input type="text" id="telefone" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Email:</label>
+              <input type="email" id="email" required />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="suite">Tipo de Suíte:</label>
+              <select id="suite" required>
+                <option value="">Selecione uma suíte</option>
+                <option value="luxo">Suíte Luxo</option>
+                <option value="premium">Suíte Premium</option>
+                <option value="master">Suíte Master</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="hospedes">Nº de Hóspedes:</label>
+              <select id="hospedes" required>
+                <option value="1">1</option>
+                <option value="2" selected>2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="checkin">Data de Check-in:</label>
+              <input type="date" id="checkin" required />
+            </div>
+            <div class="form-group">
+              <label for="checkout">Data de Check-out:</label>
+              <input type="date" id="checkout" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="observacoes">Observações:</label>
+            <textarea
+              id="observacoes"
+              rows="3"
+              placeholder="Alguma observação especial?"
+            ></textarea>
+          </div>
+          <button type="submit" class="btn">Enviar Reserva</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Modal de Detalhes da Suíte -->
+    <div class="modal" id="suite-details-modal">
+      <div class="modal-content">
+        <span class="close" id="close-suite-details-modal">&times;</span>
+        <div id="suite-details-content">
+          <!-- O conteúdo será inserido aqui via JavaScript -->
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Dados das suítes
+      const suitesData = {
+        luxo: {
+          title: "Suíte Luxo",
+          image:
+            "https://s2-casavogue.glbimg.com/lSailhCYV748Pvn_DE-NAAXYM9I=/0x0:3000x1500/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_d72fd4bf0af74c0c89d27a5a226dbbf8/internal_photos/bs/2022/r/4/ER1FBjRxAJ9IO8QCNHoQ/maior-suite-de-cruzeiro-de-luxo-do-mundo-tem-cama-de-r-1-milhao-spa-e-mais-conheca-2-.jpg",
+          description:
+            "Desfrute do máximo conforto com nossa Suíte Luxo, que oferece uma vista deslumbrante para as montanhas.",
+          features: [
+            "Cama Queen Size com lençóis de algodão egípcio",
+            "Hidromassagem privativa",
+            "Varanda com vista panorâmica",
+            "Café da manhã incluso servido no quarto",
+            "Banheiro com aquecimento e amenities naturais",
+            "TV de tela plana e sistema de som",
+          ],
+          price: "R$ 450/noite",
+        },
+        premium: {
+          title: "Suíte Premium",
+          image:
+            "https://finger.ind.br/wp-content/uploads/2022/11/2j4a8163-hdr-1024x683.jpg",
+          description:
+            "Nossa Suíte Premium combina o charme rústico com o conforto moderno em um ambiente espaçoso.",
+          features: [
+            "Decoração em madeira maciça e pedra natural",
+            "Varanda exclusiva com rede e vista para o jardim",
+            "Lareira interna",
+            "Área de estar separada",
+            "Banheira de imersão com óleos essenciais",
+            "Cafeteira e minibar com produtos regionais",
+          ],
+          price: "R$ 580/noite",
+        },
+        master: {
+          title: "Suíte Master",
+          image:
+            "https://images.unsplash.com/photo-1627308595229-7830a5c91f9f?auto=format&fit=crop&w=800&q=60",
+          description:
+            "A experiência definitiva de luxo e romance em nossa Suíte Master, perfeita para casais.",
+          features: [
+            "Jacuzzi privativa com vista para o vale",
+            "Serviço de quarto 24 horas",
+            "Cama King Size com dossel",
+            "Varanda com ofurô e área de descanso",
+            "Decoração exclusiva com obras de arte locais",
+            "Adega privativa com seleção de vinhos",
+            "Check-in e check-out VIP",
+          ],
+          price: "R$ 750/noite",
+        },
+      };
+
+      // Modal de reserva
+      const reservaModal = document.getElementById("reserva-modal");
+      const openReservaBtn = document.getElementById("open-reserva");
+      const openReservaHeroBtn = document.getElementById("open-reserva-hero");
+      const closeModalBtn = document.getElementById("close-modal");
+
+      function openModal() {
+        reservaModal.classList.add("active");
+      }
+
+      function closeModal() {
+        reservaModal.classList.remove("active");
+      }
+
+      openReservaBtn.addEventListener("click", openModal);
+      openReservaHeroBtn.addEventListener("click", openModal);
+      closeModalBtn.addEventListener("click", closeModal);
+
+      // Close modal on outside click
+      window.addEventListener("click", (e) => {
+        if (e.target === reservaModal) {
+          closeModal();
+        }
+      });
+
+      // Handle form submission
+      const reservaForm = document.getElementById("reserva-form");
+      reservaForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        alert("Reserva enviada com sucesso! Entraremos em contato em breve.");
+        closeModal();
+        reservaForm.reset();
+      });
+
+      // Suite Details Modal
+      const suiteDetailsModal = document.getElementById("suite-details-modal");
+      const closeSuiteDetailsModalBtn = document.getElementById(
+        "close-suite-details-modal"
+      );
+      const suiteDetailsContent = document.getElementById(
+        "suite-details-content"
+      );
+
+      function showDetails(suiteKey) {
+        const suite = suitesData[suiteKey];
+        if (suite) {
+          suiteDetailsContent.innerHTML = `
+                    <img src="${suite.image}" alt="${suite.title}">
+                    <h2>${suite.title}</h2>
+                    <p>${suite.description}</p>
+                    <ul>
+                        ${suite.features
+                          .map((feature) => `<li>${feature}</li>`)
+                          .join("")}
+                    </ul>
+                    <div class="suite-details-price">${suite.price}</div>
+                `;
+          suiteDetailsModal.classList.add("active");
+        }
+      }
+
+      function closeSuiteDetailsModal() {
+        suiteDetailsModal.classList.remove("active");
+      }
+
+      closeSuiteDetailsModalBtn.addEventListener(
+        "click",
+        closeSuiteDetailsModal
+      );
+
+      // Close modal on outside click
+      window.addEventListener("click", (e) => {
+        if (e.target === suiteDetailsModal) {
+          closeSuiteDetailsModal();
+        }
+      });
+    </script>
+  </body>
+</html>
